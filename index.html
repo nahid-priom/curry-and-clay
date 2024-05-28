@@ -13,28 +13,55 @@
       referrerpolicy="no-referrer"
     />
     <style>
+     
       .video-container {
-        position: relative;
-        width: 100%;
-        padding-bottom: 56.25%;
-      }
-      .video-container iframe {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: 1;
+        overflow: hidden;
+        z-index: -1; 
       }
+
+     
+      .video-container iframe {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 150%; 
+        height: 150%; 
+        transform: translate(-50%, -50%); /* Center the iframe */
+      }
+
+      
+      @media (max-width: 768px) {
+        .hero-section {
+          height: 490px; 
+        }
+
+        .video-container iframe {
+          width: 200%; 
+          height: 150%; 
+        }
+      }
+
+      
       .overlay {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.608);
-        z-index: 2;
+        background: rgba(0, 0, 0, 0.5); 
+        z-index: 1;
       }
+
+      
+      .hero-section .absolute {
+        z-index: 10;
+      }
+
       .dropdown {
         display: inline-block;
         position: relative;
@@ -71,21 +98,6 @@
       .dropdown-content a:hover {
         background-color: #f37016;
         color: white;
-      }
-      @media screen and (max-width: 767px) {
-        .hero-section .video-container {
-          position: relative;
-          width: 100%;
-          height: 100%;
-        }
-        .hero-section .video-container iframe {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
       }
     </style>
     <!-- Swiper CSS -->
@@ -158,7 +170,10 @@
                     />
                     <p class="font-bold ml-4">Appetizers</p>
                   </a>
-                  <a href="noodles.html" class="border-b rounded-md border-orange-300">
+                  <a
+                    href="noodles.html"
+                    class="border-b rounded-md border-orange-300"
+                  >
                     <img
                       src="https://blakehillpreserves.com/cdn/shop/articles/HERO_SQUARE_IMAGE_FRESNO_THAI_CHILI_PEANUT_NOODLES_1400x.jpg?v=1600825937"
                       alt="Noodles"
@@ -306,7 +321,10 @@
                       />
                       <p class="font-bold ml-4">Appetizers</p>
                     </a>
-                    <a href="noodles.html" class="border-b rounded-md border-orange-300">
+                    <a
+                      href="noodles.html"
+                      class="border-b rounded-md border-orange-300"
+                    >
                       <img
                         src="https://blakehillpreserves.com/cdn/shop/articles/HERO_SQUARE_IMAGE_FRESNO_THAI_CHILI_PEANUT_NOODLES_1400x.jpg?v=1600825937"
                         alt="Noodles"
@@ -370,7 +388,7 @@
 
       <!-- Hero Section -->
       <section
-        class="hero-section h-[250px] lg:h-[800px] bg-orange-100 -z-10 relative overflow-hidden"
+        class="hero-section lg:h-[800px] bg-orange-100 -z-10 relative overflow-hidden"
       >
         <!-- YouTube Video Background -->
         <div class="video-container">
@@ -386,18 +404,18 @@
         <!-- Hero Content -->
         <div class="absolute inset-0 flex items-center justify-center z-10">
           <div class="text-center max-w-3xl">
-            <h1 class="text-2xl lg:text-5xl text-white font-bold mb-4">
+            <h1 class="text-[40px] lg:text-5xl px-4 text-white font-bold mb-4">
               Discover the Finest Culinary Delights in Our City
             </h1>
             <div class="my-8">
               <a
                 href="#"
-                class="bg-orange-500 hover:bg-white hover:text-black text-white text-sm lg:text-lg font-extrabold py-2 px-4 lg:py-3 lg:px-10 rounded-xl mr-4"
+                class="bg-orange-500 hover:bg-white hover:text-black text-white text-sm lg:text-lg font-extrabold py-3 px-5 lg:py-3 lg:px-10 rounded-xl mr-4"
                 >Pick up</a
               >
               <a
                 href="#"
-                class="bg-white hover:bg-black text-black hover:text-white text-sm lg:text-lg font-extrabold py-2 px-4 lg:py-3 lg:px-10 rounded-xl mr-4"
+                class="bg-white hover:bg-black text-black hover:text-white text-sm lg:text-lg font-extrabold py-3 px-5 lg:py-3 lg:px-10 rounded-xl mr-4"
                 >Contact</a
               >
             </div>
@@ -499,7 +517,8 @@
                     Rice and Biriyani
                   </h3>
                   <p class="text-gray-600">
-                    Aromatic basmati rice, cooked with richly flavored saffron, nuts, and raisins. 
+                    Aromatic basmati rice, cooked with richly flavored saffron,
+                    nuts, and raisins.
                   </p>
                 </div>
               </a>
@@ -517,7 +536,8 @@
                     Drinks & Dessurs
                   </h3>
                   <p class="text-gray-600">
-                    Delight in our hearty and delicious drinks and desserts like Gulab Jamun Kheer
+                    Delight in our hearty and delicious drinks and desserts like
+                    Gulab Jamun Kheer
                   </p>
                 </div>
               </a>
@@ -601,11 +621,10 @@
                   alt="Appetizers"
                   class="w-full h-48 object-cover mb-4 rounded-lg"
                 />
-                <h3 class="text-xl font-bold text-black mb-2">
-                  Kadai Lamb
-                </h3>
+                <h3 class="text-xl font-bold text-black mb-2">Kadai Lamb</h3>
                 <p class="text-gray-600">
-                  Cubes of lamb cooked, sauteed tomatoes, onion, and chillies, cooked in a mild sauce
+                  Cubes of lamb cooked, sauteed tomatoes, onion, and chillies,
+                  cooked in a mild sauce
                 </p>
               </div>
             </a>
@@ -620,10 +639,10 @@
                   class="w-full h-48 object-cover mb-4 rounded-lg"
                 />
                 <h3 class="text-xl font-bold text-black mb-2">
-                 Chicken Vindaloo
+                  Chicken Vindaloo
                 </h3>
                 <p class="text-gray-600">
-                 Chicken simmered in a fiery Vinegar flavored sauce
+                  Chicken simmered in a fiery Vinegar flavored sauce
                 </p>
               </div>
             </a>
@@ -637,11 +656,10 @@
                   alt="Desserts"
                   class="w-full h-48 object-cover mb-4 rounded-lg"
                 />
-                <h3 class="text-xl font-bold text-black mb-2">
-                  Hakka Noodles
-                </h3>
+                <h3 class="text-xl font-bold text-black mb-2">Hakka Noodles</h3>
                 <p class="text-gray-600">
-                  Cooked noodles, with stir fried vegetables and chicken, lightly spiced
+                  Cooked noodles, with stir fried vegetables and chicken,
+                  lightly spiced
                 </p>
               </div>
             </a>
@@ -649,145 +667,145 @@
         </div>
       </section>
       <!--Footer-->
-    <footer class="relative bg-black pt-8 pb-6">
-      <div class="max-w-7xl mx-auto px-4">
-        <div class="flex flex-wrap text-left lg:text-left">
-          <div class="w-full lg:w-6/12 px-4">
-            <h4 class="text-3base text-white font-semibold text-blueGray-700">
-              Let's stay connected!
-            </h4>
-            <h5 class="text-lg mt-0 mb-2 text-white">
-              Find us on any of these platforms. We usually respond within 1-2
-              business days.
-            </h5>
-            <div class="mt-6 lg:mb-0 mb-6">
-              <button
-                class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                type="button"
-              >
-                <i class="fab fa-twitter"></i>
-              </button>
-              <button
-                class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                type="button"
-              >
-                <i class="fab fa-facebook-square"></i>
-              </button>
-              <button
-                class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                type="button"
-              >
-                <i class="fab fa-dribbble"></i>
-              </button>
-              <button
-                class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                type="button"
-              >
-                <i class="fab fa-github"></i>
-              </button>
+      <footer class="relative bg-black pt-8 pb-6">
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="flex flex-wrap text-left lg:text-left">
+            <div class="w-full lg:w-6/12 px-4">
+              <h4 class="text-3base text-white font-semibold text-blueGray-700">
+                Let's stay connected!
+              </h4>
+              <h5 class="text-lg mt-0 mb-2 text-white">
+                Find us on any of these platforms. We usually respond within 1-2
+                business days.
+              </h5>
+              <div class="mt-6 lg:mb-0 mb-6">
+                <button
+                  class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  type="button"
+                >
+                  <i class="fab fa-twitter"></i>
+                </button>
+                <button
+                  class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  type="button"
+                >
+                  <i class="fab fa-facebook-square"></i>
+                </button>
+                <button
+                  class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  type="button"
+                >
+                  <i class="fab fa-dribbble"></i>
+                </button>
+                <button
+                  class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  type="button"
+                >
+                  <i class="fab fa-github"></i>
+                </button>
+              </div>
+            </div>
+            <div class="w-full lg:w-6/12 px-4">
+              <div class="flex flex-wrap items-top mb-6">
+                <div class="w-full lg:w-4/12 px-4 ml-auto">
+                  <span
+                    class="block uppercase text-white text-lg font-semibold mb-4"
+                    >Useful Links</span
+                  >
+                  <ul class="list-unstyled">
+                    <li>
+                      <a
+                        class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                        href="https://www.creative-tim.com/presentation?ref=njs-profile"
+                        >About Us</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                        href="https://blog.creative-tim.com?ref=njs-profile"
+                        >Blog</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                        href="https://www.github.com/creativetimofficial?ref=njs-profile"
+                        >Github</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                        href="https://www.creative-tim.com/bootstrap-themes/free?ref=njs-profile"
+                        >Free Products</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="w-full lg:w-4/12 px-4">
+                  <span
+                    class="block uppercase text-white text-lg font-semibold mb-4"
+                    >Other Resources</span
+                  >
+                  <ul class="list-unstyled">
+                    <li>
+                      <a
+                        class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                        href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-profile"
+                        >MIT License</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                        href="https://creative-tim.com/terms?ref=njs-profile"
+                        >Terms & Conditions</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                        href="https://creative-tim.com/privacy?ref=njs-profile"
+                        >Privacy Policy</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                        href="https://creative-tim.com/contact-us?ref=njs-profile"
+                        >Contact Us</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="w-full lg:w-6/12 px-4">
-            <div class="flex flex-wrap items-top mb-6">
-              <div class="w-full lg:w-4/12 px-4 ml-auto">
-                <span
-                  class="block uppercase text-white text-lg font-semibold mb-4"
-                  >Useful Links</span
+          <hr class="my-6 border-blueGray-300" />
+          <div
+            class="flex flex-wrap items-center md:justify-between justify-center"
+          >
+            <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+              <div class="text-sm text-white font-semibold py-1">
+                Copyright © <span id="get-current-year">2021</span>
+                <a
+                  href="https://www.creative-tim.com/product/notus-js"
+                  class="text-white hover:text-gray-800"
+                  target="_blank"
+                  >BlackTech</a
                 >
-                <ul class="list-unstyled">
-                  <li>
-                    <a
-                      class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                      href="https://www.creative-tim.com/presentation?ref=njs-profile"
-                      >About Us</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                      href="https://blog.creative-tim.com?ref=njs-profile"
-                      >Blog</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                      href="https://www.github.com/creativetimofficial?ref=njs-profile"
-                      >Github</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                      href="https://www.creative-tim.com/bootstrap-themes/free?ref=njs-profile"
-                      >Free Products</a
-                    >
-                  </li>
-                </ul>
-              </div>
-              <div class="w-full lg:w-4/12 px-4">
-                <span
-                  class="block uppercase text-white text-lg font-semibold mb-4"
-                  >Other Resources</span
-                >
-                <ul class="list-unstyled">
-                  <li>
-                    <a
-                      class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                      href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-profile"
-                      >MIT License</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                      href="https://creative-tim.com/terms?ref=njs-profile"
-                      >Terms & Conditions</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                      href="https://creative-tim.com/privacy?ref=njs-profile"
-                      >Privacy Policy</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                      href="https://creative-tim.com/contact-us?ref=njs-profile"
-                      >Contact Us</a
-                    >
-                  </li>
-                </ul>
+                <a
+                  href="https://www.creative-tim.com?ref=njs-profile"
+                  class="text-white hover:text-blueGray-800"
+                  >Consultancy</a
+                >.
               </div>
             </div>
           </div>
         </div>
-        <hr class="my-6 border-blueGray-300" />
-        <div
-          class="flex flex-wrap items-center md:justify-between justify-center"
-        >
-          <div class="w-full md:w-4/12 px-4 mx-auto text-center">
-            <div class="text-sm text-white font-semibold py-1">
-              Copyright © <span id="get-current-year">2021</span>
-              <a
-                href="https://www.creative-tim.com/product/notus-js"
-                class="text-white hover:text-gray-800"
-                target="_blank"
-                >BlackTech</a
-              >
-              <a
-                href="https://www.creative-tim.com?ref=njs-profile"
-                class="text-white hover:text-blueGray-800"
-                >Consultancy</a
-              >.
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!--End Footer-->
+      </footer>
+      <!--End Footer-->
     </div>
   </body>
   <script src="js/index.js"></script>
