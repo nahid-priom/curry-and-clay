@@ -88,3 +88,32 @@ phoneIcon.addEventListener('mouseenter', () => {
 phoneIcon.addEventListener('mouseleave', () => {
   phoneNumber.classList.add('hidden');
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  var preloader = document.querySelector(".preloader");
+  var content = document.querySelector(".content");
+  setTimeout(function () {
+    preloader.style.display = "none";
+    content.style.display = "block";
+  }, 2000);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const burger = document.querySelector(".navbar-burger");
+  const menu = document.querySelector(".navbar-menu");
+  const close = document.querySelector(".navbar-close");
+  const backdrop = document.querySelector(".navbar-backdrop");
+
+  burger.addEventListener("click", () => {
+    menu.classList.add("open");
+  });
+
+  close.addEventListener("click", () => {
+    menu.classList.remove("open");
+  });
+
+  backdrop.addEventListener("click", () => {
+    menu.classList.remove("open");
+  });
+});
+
