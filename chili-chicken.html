@@ -12,56 +12,30 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
     <style>
-     
       .video-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%;
+      }
+      .video-container iframe {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        overflow: hidden;
-        z-index: -1; 
+        z-index: 1;
       }
-
-     
-      .video-container iframe {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 150%; 
-        height: 150%; 
-        transform: translate(-50%, -50%); /* Center the iframe */
-      }
-
-      
-      @media (max-width: 768px) {
-        .hero-section {
-          height: 490px; 
-        }
-
-        .video-container iframe {
-          width: 200%; 
-          height: 150%; 
-        }
-      }
-
-      
       .overlay {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.5); 
-        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.608);
+        z-index: 2;
       }
-
-      
-      .hero-section .absolute {
-        z-index: 10;
-      }
-
       .dropdown {
         display: inline-block;
         position: relative;
@@ -98,6 +72,21 @@
       .dropdown-content a:hover {
         background-color: #f37016;
         color: white;
+      }
+      @media screen and (max-width: 767px) {
+        .hero-section .video-container {
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+        .hero-section .video-container iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
     </style>
     <!-- Swiper CSS -->
@@ -386,288 +375,144 @@
         </div>
       </section>
       <!--End Navbar-->
-
-      <!-- Hero Section -->
-      <section
-        class="hero-section lg:h-[800px] bg-orange-100 -z-10 relative overflow-hidden"
-      >
-        <!-- YouTube Video Background -->
-        <div class="video-container">
-          <iframe
-            src="https://www.youtube.com/embed/32T8Oja5Yn4?autoplay=1&amp;loop=1&amp;controls=0&amp;mute=1&amp;playlist=32T8Oja5Yn4"
-            frameborder="0"
-            allowfullscreen
-          >
-          </iframe>
-        </div>
-        <!-- Black Overlay -->
-        <div class="overlay"></div>
-        <!-- Hero Content -->
-        <div class="absolute inset-0 flex items-center justify-center z-10">
-          <div class="text-center max-w-3xl">
-            <h1 class="text-[40px] lg:text-5xl px-4 text-white font-bold mb-4">
-              Discover the Finest Culinary Delights in Our City
-            </h1>
-            <div class="my-8">
-              <a
-                href="#"
-                class="bg-orange-500 hover:bg-white hover:text-black text-white text-sm lg:text-lg font-extrabold py-3 px-5 lg:py-3 lg:px-10 rounded-xl mr-4"
-                >Pick up</a
-              >
-              <a
-                href="#"
-                class="bg-white hover:bg-black text-black hover:text-white text-sm lg:text-lg font-extrabold py-3 px-5 lg:py-3 lg:px-10 rounded-xl mr-4"
-                >Contact</a
-              >
+      <!--Single Food Section-->
+      <section class="py-10 -z-10 lg:py-24 bg-black relative">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+            <div class="pro-detail w-full flex flex-col justify-center order-last lg:order-none max-lg:max-w-[608px] max-lg:mx-auto">
+              <h2 class="mb-2 font-manrope font-bold text-4xl leading-10 text-white">
+                Chili Chicken
+              </h2>
+              <div class="flex flex-col sm:flex-row sm:items-center mb-6">
+                <h6 class="font-manrope font-semibold text-2xl leading-9 text-white pr-5 sm:border-r border-gray-200 mr-5">
+                  $7.99
+                </h6>
+                <div class="flex items-center gap-2">
+                  <div class="flex items-center gap-1">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clip-path="url(#clip0_12029_1640)">
+                        <path
+                          d="M9.10326 2.31699C9.47008 1.57374 10.5299 1.57374 10.8967 2.31699L12.7063 5.98347C12.8519 6.27862 13.1335 6.48319 13.4592 6.53051L17.5054 7.11846C18.3256 7.23765 18.6531 8.24562 18.0596 8.82416L15.1318 11.6781C14.8961 11.9079 14.7885 12.2389 14.8442 12.5632L15.5353 16.5931C15.6754 17.41 14.818 18.033 14.0844 17.6473L10.4653 15.7446C10.174 15.5915 9.82598 15.5915 9.53466 15.7446L5.91562 17.6473C5.18199 18.033 4.32456 17.41 4.46467 16.5931L5.15585 12.5632C5.21148 12.2389 5.10393 11.9079 4.86825 11.6781L1.94038 8.82416C1.34687 8.24562 1.67438 7.23765 2.4946 7.11846L6.54081 6.53051C6.86652 6.48319 7.14808 6.27862 7.29374 5.98347L9.10326 2.31699Z"
+                          fill="#FBBF24"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_12029_1640">
+                          <rect width="20" height="20" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clip-path="url(#clip0_12029_1640)">
+                        <path
+                          d="M9.10326 2.31699C9.47008 1.57374 10.5299 1.57374 10.8967 2.31699L12.7063 5.98347C12.8519 6.27862 13.1335 6.48319 13.4592 6.53051L17.5054 7.11846C18.3256 7.23765 18.6531 8.24562 18.0596 8.82416L15.1318 11.6781C14.8961 11.9079 14.7885 12.2389 14.8442 12.5632L15.5353 16.5931C15.6754 17.41 14.818 18.033 14.0844 17.6473L10.4653 15.7446C10.174 15.5915 9.82598 15.5915 9.53466 15.7446L5.91562 17.6473C5.18199 18.033 4.32456 17.41 4.46467 16.5931L5.15585 12.5632C5.21148 12.2389 5.10393 11.9079 4.86825 11.6781L1.94038 8.82416C1.34687 8.24562 1.67438 7.23765 2.4946 7.11846L6.54081 6.53051C6.86652 6.48319 7.14808 6.27862 7.29374 5.98347L9.10326 2.31699Z"
+                          fill="#FBBF24"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_12029_1640">
+                          <rect width="20" height="20" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clip-path="url(#clip0_12029_1640)">
+                        <path
+                          d="M9.10326 2.31699C9.47008 1.57374 10.5299 1.57374 10.8967 2.31699L12.7063 5.98347C12.8519 6.27862 13.1335 6.48319 13.4592 6.53051L17.5054 7.11846C18.3256 7.23765 18.6531 8.24562 18.0596 8.82416L15.1318 11.6781C14.8961 11.9079 14.7885 12.2389 14.8442 12.5632L15.5353 16.5931C15.6754 17.41 14.818 18.033 14.0844 17.6473L10.4653 15.7446C10.174 15.5915 9.82598 15.5915 9.53466 15.7446L5.91562 17.6473C5.18199 18.033 4.32456 17.41 4.46467 16.5931L5.15585 12.5632C5.21148 12.2389 5.10393 11.9079 4.86825 11.6781L1.94038 8.82416C1.34687 8.24562 1.67438 7.23765 2.4946 7.11846L6.54081 6.53051C6.86652 6.48319 7.14808 6.27862 7.29374 5.98347L9.10326 2.31699Z"
+                          fill="#FBBF24"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_12029_1640">
+                          <rect width="20" height="20" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clip-path="url(#clip0_12029_1640)">
+                        <path
+                          d="M9.10326 2.31699C9.47008 1.57374 10.5299 1.57374 10.8967 2.31699L12.7063 5.98347C12.8519 6.27862 13.1335 6.48319 13.4592 6.53051L17.5054 7.11846C18.3256 7.23765 18.6531 8.24562 18.0596 8.82416L15.1318 11.6781C14.8961 11.9079 14.7885 12.2389 14.8442 12.5632L15.5353 16.5931C15.6754 17.41 14.818 18.033 14.0844 17.6473L10.4653 15.7446C10.174 15.5915 9.82598 15.5915 9.53466 15.7446L5.91562 17.6473C5.18199 18.033 4.32456 17.41 4.46467 16.5931L5.15585 12.5632C5.21148 12.2389 5.10393 11.9079 4.86825 11.6781L1.94038 8.82416C1.34687 8.24562 1.67438 7.23765 2.4946 7.11846L6.54081 6.53051C6.86652 6.48319 7.14808 6.27862 7.29374 5.98347L9.10326 2.31699Z"
+                          fill="#FBBF24"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_12029_1640">
+                          <rect width="20" height="20" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clip-path="url(#clip0_12029_1640)">
+                        <path
+                          d="M9.10326 2.31699C9.47008 1.57374 10.5299 1.57374 10.8967 2.31699L12.7063 5.98347C12.8519 6.27862 13.1335 6.48319 13.4592 6.53051L17.5054 7.11846C18.3256 7.23765 18.6531 8.24562 18.0596 8.82416L15.1318 11.6781C14.8961 11.9079 14.7885 12.2389 14.8442 12.5632L15.5353 16.5931C15.6754 17.41 14.818 18.033 14.0844 17.6473L10.4653 15.7446C10.174 15.5915 9.82598 15.5915 9.53466 15.7446L5.91562 17.6473C5.18199 18.033 4.32456 17.41 4.46467 16.5931L5.15585 12.5632C5.21148 12.2389 5.10393 11.9079 4.86825 11.6781L1.94038 8.82416C1.34687 8.24562 1.67438 7.23765 2.4946 7.11846L6.54081 6.53051C6.86652 6.48319 7.14808 6.27862 7.29374 5.98347L9.10326 2.31699Z"
+                          fill="#FBBF24"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_12029_1640">
+                          <rect width="20" height="20" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </div>
+                  <p class="text-sm font-medium text-gray-500">30 reviews</p>
+                </div>
+              </div>
+              <p class="mb-4 text-lg font-normal text-white">
+                Chicken spiked with red peppers accompanied with suteed vagetables
+              </p>
+              <div class="flex gap-3">
+                <button class="px-4 py-2 bg-orange-500 text-white text-base leading-6 rounded-md border border-orangbg-orange-500 hover:bg-orange-500-dark hover:border-orangbg-orange-500-dark font-semibold">
+                  Order Now
+                </button>
+                <button class="px-4 py-2 bg-white text-orangbg-orange-500 text-base leading-6 rounded-md border border-orangbg-orange-500 hover:bg-orange-500-light font-semibold">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="relative h-full min-h-[384px] max-h-[420px]">
+              <img
+                src="https://i.ytimg.com/vi/pMCS1TR4Wyo/maxresdefault.jpg"
+                alt="Samosa Chaat"
+                class="w-full h-full object-cover object-center rounded-md shadow-md"
+              />
             </div>
           </div>
         </div>
       </section>
+      
+     
 
-      <!-- Content -->
-<section>
-  <div class="bg-black py-10">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold text-white">Our Menu</h2>
-        <p class="mt-4 text-lg text-gray-100">
-          Discover our wide variety of dishes made with fresh ingredients.
-        </p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <a
-          href="appetizer.html"
-          class="transform transition-transform duration-300 ease-in-out hover:scale-105"
-        >
-          <div class="bg-white shadow-lg rounded-lg p-6">
-            <img
-              src="https://www.restaurantware.com/cdn/shop/files/RWC0011-2-LR.jpg?v=1709408385&width=750"
-              alt="Appetizers"
-              class="w-full h-48 object-cover mb-4 rounded-lg"
-            />
-            <h3 class="text-xl font-bold text-black mb-2">Appetizers</h3>
-            <p class="text-gray-600">
-              Start your meal with our delicious appetizers.
-            </p>
-          </div>
-        </a>
-
-        <a
-          href="noodles.html"
-          class="transform transition-transform duration-300 ease-in-out hover:scale-105"
-        >
-          <div class="bg-white shadow-lg rounded-lg p-6">
-            <img
-              src="https://blakehillpreserves.com/cdn/shop/articles/HERO_SQUARE_IMAGE_FRESNO_THAI_CHILI_PEANUT_NOODLES_1400x.jpg?v=1600825937"
-              alt="Noodles"
-              class="w-full h-48 object-cover mb-4 rounded-lg"
-            />
-            <h3 class="text-xl font-bold text-black mb-2">Noodles</h3>
-            <p class="text-gray-600">
-              Enjoy our range of delicious noodle dishes.
-            </p>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="transform transition-transform duration-300 ease-in-out hover:scale-105"
-        >
-          <div class="bg-white shadow-lg rounded-lg p-6">
-            <img
-              src="https://static01.nyt.com/images/2020/03/04/dining/tr-meen-gassi/tr-meen-gassi-square640.jpg"
-              alt="Curries (Sea-Food)"
-              class="w-full h-48 object-cover mb-4 rounded-lg"
-            />
-            <h3 class="text-xl font-bold text-black mb-2">
-              Curries (Sea-Food)
-            </h3>
-            <p class="text-gray-600">
-              Savor our rich and flavorful seafood curries.
-            </p>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="transform transition-transform duration-300 ease-in-out hover:scale-105"
-        >
-          <div class="bg-white shadow-lg rounded-lg p-6">
-            <img
-              src="https://pinchofyum.com/wp-content/uploads/Thai-Yellow-Chicken-Curry-Square.jpg"
-              alt="Curries (Vegetarian)"
-              class="w-full h-48 object-cover mb-4 rounded-lg"
-            />
-            <h3 class="text-xl font-bold text-black mb-2">
-              Curries (Vegetarian)
-            </h3>
-            <p class="text-gray-600">
-              Delight in our hearty and delicious vegetarian curries.
-            </p>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="transform transition-transform duration-300 ease-in-out hover:scale-105"
-        >
-          <div class="bg-white shadow-lg rounded-lg p-6">
-            <img
-              src="https://5.imimg.com/data5/RR/RR/GLADMIN-/chicken-biryani-rice-500x500.jpg"
-              alt="Rice and Biriyani"
-              class="w-full h-48 object-cover mb-4 rounded-lg"
-            />
-            <h3 class="text-xl font-bold text-black mb-2">
-              Rice and Biriyani
-            </h3>
-            <p class="text-gray-600">
-              Aromatic basmati rice, cooked with richly flavored saffron,
-              nuts, and raisins.
-            </p>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="transform transition-transform duration-300 ease-in-out hover:scale-105"
-        >
-          <div class="bg-white shadow-lg rounded-lg p-6">
-            <img
-              src="https://res.cloudinary.com/the-infatuation/image/upload/f_auto/q_auto/v1664814507/images/Gage_and_Tollner_Dessert_and_Drinks-87_nx0gsa.jpg"
-              alt="Drinks & Desserts"
-              class="w-full h-48 object-cover mb-4 rounded-lg"
-            />
-            <h3 class="text-xl font-bold text-black mb-2">
-              Drinks & Desserts
-            </h3>
-            <p class="text-gray-600">
-              Delight in our hearty and delicious drinks and desserts like
-              Gulab Jamun Kheer.
-            </p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-      <!-- Popular Foods Section -->
-      <section class="popular-foods py-4 lg:py-12 bg-black">
-        <div class="max-w-7xl mx-auto px-4">
-          <h2
-            class="text-3xl lg:text-4xl font-bold text-center text-white my-12"
-          >
-            Popular Foods
-          </h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <a
-              href="#"
-              class="transform transition-transform duration-300 ease-in-out hover:scale-105"
-            >
-              <div class="bg-white shadow-lg h-88 rounded-lg p-6">
-                <img
-                  src="https://minimalistbaker.com/wp-content/uploads/2020/03/SALMON-RED-CURRY-SQUARE.jpg"
-                  alt="Appetizers"
-                  class="w-full h-48 object-cover mb-4 rounded-lg"
-                />
-                <h3 class="text-xl font-bold text-black mb-2">
-                  Goan Salmon Curry
-                </h3>
-                <p class="text-gray-600">
-                  The blend of spices and coconut brings out the mild sweetness
-                  of the tender fresh fish that is so abundant in Goa
-                </p>
-              </div>
-            </a>
-            <a
-              href="#"
-              class="transform transition-transform duration-300 ease-in-out hover:scale-105"
-            >
-              <div class="bg-white shadow-lg h-88 rounded-lg p-6">
-                <img
-                  src="https://www.vegandaydream.com/wp-content/uploads/2014/09/Vegan-Samosas-and-Sauce.jpg"
-                  alt="Main Course"
-                  class="w-full h-48 object-cover mb-4 rounded-lg"
-                />
-                <h3 class="text-xl font-bold text-black mb-2">
-                  Vegetable Samosa
-                </h3>
-                <p class="text-gray-600">
-                  Crispy turnover stuffed with mildly spiced potatoes and green
-                  peas
-                </p>
-              </div>
-            </a>
-            <a
-              href="#"
-              class="transform transition-transform duration-300 ease-in-out hover:scale-105"
-            >
-              <div class="bg-white shadow-lg h-88 rounded-lg p-6">
-                <img
-                  src="https://img-global.cpcdn.com/recipes/c48b3226addd7806/680x482cq70/chicken-platter-recipe-main-photo.jpg"
-                  alt="Desserts"
-                  class="w-full h-48 object-cover mb-4 rounded-lg"
-                />
-                <h3 class="text-xl font-bold text-black mb-2">
-                  Chicken Plater
-                </h3>
-                <p class="text-gray-600">
-                  Tandoori chicken, seekh kabob, shirmp, chicken tikka and
-                  Rashmi Kabob serve together
-                </p>
-              </div>
-            </a>
-            <a
-              href="#"
-              class="transform transition-transform duration-300 ease-in-out hover:scale-105"
-            >
-              <div class="bg-white shadow-lg h-88 rounded-lg p-6">
-                <img
-                  src="https://khinskitchen.com/wp-content/uploads/2022/03/lamb-karahi-01.jpg"
-                  alt="Appetizers"
-                  class="w-full h-48 object-cover mb-4 rounded-lg"
-                />
-                <h3 class="text-xl font-bold text-black mb-2">Kadai Lamb</h3>
-                <p class="text-gray-600">
-                  Cubes of lamb cooked, sauteed tomatoes, onion, and chillies,
-                  cooked in a mild sauce
-                </p>
-              </div>
-            </a>
-            <a
-              href="#"
-              class="transform transition-transform duration-300 ease-in-out hover:scale-105"
-            >
-              <div class="bg-white shadow-lg h-88 rounded-lg p-6">
-                <img
-                  src="https://www.whiskaffair.com/wp-content/uploads/2021/05/Chicken-Vindaloo-2-3.jpg"
-                  alt="Main Course"
-                  class="w-full h-48 object-cover mb-4 rounded-lg"
-                />
-                <h3 class="text-xl font-bold text-black mb-2">
-                  Chicken Vindaloo
-                </h3>
-                <p class="text-gray-600">
-                  Chicken simmered in a fiery Vinegar flavored sauce
-                </p>
-              </div>
-            </a>
-            <a
-              href="#"
-              class="transform transition-transform duration-300 ease-in-out hover:scale-105"
-            >
-              <div class="bg-white shadow-lg h-88 rounded-lg p-6">
-                <img
-                  src="https://myfoodstory.com/wp-content/uploads/2021/02/Vegetable-Hakka-Noodles-Restaurant-Style-3.jpg"
-                  alt="Desserts"
-                  class="w-full h-48 object-cover mb-4 rounded-lg"
-                />
-                <h3 class="text-xl font-bold text-black mb-2">Hakka Noodles</h3>
-                <p class="text-gray-600">
-                  Cooked noodles, with stir fried vegetables and chicken,
-                  lightly spiced
-                </p>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
       <!--Footer-->
       <footer class="relative bg-black pt-8 pb-6">
         <div class="max-w-7xl mx-auto px-4">
