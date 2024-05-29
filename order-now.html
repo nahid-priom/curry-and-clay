@@ -24,7 +24,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: -10;
+        z-index: 1;
       }
       .overlay {
         position: absolute;
@@ -52,7 +52,6 @@
         display: flex;
         flex-direction: column;
         border-radius: 10px;
-        z-index: 1000;
       }
       .dropdown-content a {
         color: white;
@@ -375,269 +374,215 @@
               </div>
             </section>
             <!--End Navbar-->
+    <div class="bg-black pb-12">
+      <div
+        class="mx-auto max-w-3xl overflow-hidden rounded-xl bg-orange-500 py-32 text-center "
+      >
+        <h1 class="mt-2 px-8 text-3xl font-bold text-white md:text-5xl">
+          Order Now
+        </h1>
+        <p class="mt-6 text-lg text-white">
+          Get an appointment with our experienced accountants
+        </p>
+        
+      </div>
 
-       <!-- Popular Foods Section -->
-       <section class="popular-foods py-4 bg-black">
-        <div class="max-w-7xl mx-auto px-4">
-          <h2
-            class="text-3xl lg:text-4xl font-bold text-center text-white bg-orange-500 py-3 mb-8 rounded-md"
-          >
-            Appetizer
-          </h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <a
-              href="samosa.html"
-              class=" duration-300 ease-in-out hover:scale-105"
-            >
-              <div class="bg-white shadow-lg h-88 rounded-lg p-6">
-                <img
-                  src="https://www.vegrecipesofindia.com/wp-content/uploads/2017/01/samosa-chaat-recipe-1.jpg"
-                  alt="Appetizers"
-                  class="w-full h-48 object-cover mb-4 rounded-lg"
-                />
-                <h3 class="text-xl font-bold text-black mb-2">
-                  Samosa Chaat
-                </h3>
-                <p class="text-gray-600">
-                 Samosa split open and covered with spicy chickpeas, minced onion, cilantro, yogurt and tamarind sauce
-                </p>
-              </div>
-            </a>
-            <a
-              href="chili-chicken.html"
-              class=" duration-300 ease-in-out hover:scale-105"
-            >
-              <div class="bg-white shadow-lg h-88 rounded-lg p-6">
-                <img
-                  src="https://i.ytimg.com/vi/pMCS1TR4Wyo/maxresdefault.jpg"
-                  alt="Main Course"
-                  class="w-full h-48 object-cover mb-4 rounded-lg"
-                />
-                <h3 class="text-xl font-bold text-black mb-2">
-                  Chili Chicken
-                </h3>
-                <p class="text-gray-600">
-                  Chicken spiked with red peppers accompanied with suteed vagetables
-                </p>
-              </div>
-            </a>
-            <a
-              href="#"
-              class=" duration-300 ease-in-out hover:scale-105"
-            >
-              <div class="bg-white shadow-lg h-88 rounded-lg p-6">
-                <img
-                  src="https://www.ndtv.com/cooks/images/chicken.seekh.jpg"
-                  alt="Desserts"
-                  class="w-full h-48 object-cover mb-4 rounded-lg"
-                />
-                <h3 class="text-xl font-bold text-black mb-2">
-                  Chicken Seekh Kabab
-                </h3>
-                <p class="text-gray-600">
-                  Mildly spiced minced chicken skewered and cooled in clay oven
-                </p>
-              </div>
-            </a>
-            <a
-              href="#"
-              class=" duration-300 ease-in-out hover:scale-105"
-            >
-              <div class="bg-white shadow-lg h-88 rounded-lg p-6">
-                <img
-                  src="https://www.sheknows.com/wp-content/uploads/2018/08/blooming-onion-appetizer.jpeg"
-                  alt="Appetizers"
-                  class="w-full h-48 object-cover mb-4 rounded-lg"
-                />
-                <h3 class="text-xl font-bold text-black mb-2">
-                  Chicken Parmesan Slider Bake
-                </h3>
-                <p class="text-gray-600">
-                  Cubes of lamb cooked, sauteed tomatoes, onion, and chillies, cooked in a mild sauce
-                </p>
-              </div>
-            </a>
-            <a
-              href="#"
-              class=" duration-300 ease-in-out hover:scale-105"
-            >
-              <div class="bg-white shadow-lg h-88 rounded-lg p-6">
-                <img
-                  src="https://www.whiskaffair.com/wp-content/uploads/2021/05/Chicken-Vindaloo-2-3.jpg"
-                  alt="Main Course"
-                  class="w-full h-48 object-cover mb-4 rounded-lg"
-                />
-                <h3 class="text-xl font-bold text-black mb-2">
-                  Orange-Glazed Meatballs
-                </h3>
-                <p class="text-gray-600">
-                 Chicken simmered in a fiery Vinegar flavored sauce
-                </p>
-              </div>
-            </a>
-            <a
-              href="#"
-              class=" duration-300 ease-in-out hover:scale-105"
-            >
-              <div class="bg-white shadow-lg h-88 rounded-lg p-6">
-                <img
-                  src="https://myfoodstory.com/wp-content/uploads/2021/02/Vegetable-Hakka-Noodles-Restaurant-Style-3.jpg"
-                  alt="Desserts"
-                  class="w-full h-48 object-cover mb-4 rounded-lg"
-                />
-                <h3 class="text-xl font-bold text-black mb-2">
-                  Hot Spinach Artichoke Dip
-                </h3>
-                <p class="text-gray-600">
-                  Cooked noodles, with stir fried vegetables and chicken, lightly spiced
-                </p>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
+      <div class="mx-auto grid max-w-3xl bg-white px-6 rounded-xl pb-20">
+        
+        <label class="mt-10 font-serif text-xl font-bold text-blue-900" for="name"
+          >Name</label
+        >
+        <input
+          type="text"
+          id="name"
+          class="py-3 px-4 my-4 rounded-lg max-w-3xl bg-orange-100"
+          name="name"
+          placeholder="Enter your Name"
+        />
+        <label class="font-serif text-xl font-bold text-blue-900" for="name"
+          >Email</label
+        >
+        <input
+          type="text"
+          id="name"
+          class="py-3 px-4 my-4 rounded-lg max-w-3xl bg-orange-100"
+          type="number"
+          placeholder="Enter your Email"
+        />
+        <label class="font-serif text-xl font-bold text-blue-900" for="name"
+          >Phone Number</label
+        >
+        <input
+          type="text"
+          id="name"
+          class="py-3 px-4 my-4 rounded-lg max-w-3xl bg-orange-100"
+          name="name"
+          placeholder="Enter Phone Number"
+        />
+        <label class="font-serif text-xl font-bold text-blue-900" for="name"
+          >Address</label
+        >
+        <input
+          type="text"
+          id="name"
+          class="py-3 px-4 my-4 rounded-lg max-w-3xl bg-orange-100"
+          name="name"
+          placeholder="Enter Phone Address"
+        />
+        <a href="thank-you.html">
 
-      <!--Footer-->
-      <footer class="relative bg-black pt-8 pb-6">
-        <div class="max-w-7xl mx-auto px-4">
-          <div class="flex flex-wrap text-left lg:text-left">
-            <div class="w-full lg:w-6/12 px-4">
-              <h4 class="text-3base text-white font-semibold text-blueGray-700">
-                Let's stay connected!
-              </h4>
-              <h5 class="text-lg mt-0 mb-2 text-white">
-                Find us on any of these platforms. We usually respond within 1-2
-                business days.
-              </h5>
-              <div class="mt-6 lg:mb-0 mb-6">
-                <button
-                  class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                  type="button"
-                >
-                  <i class="fab fa-twitter"></i>
-                </button>
-                <button
-                  class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                  type="button"
-                >
-                  <i class="fab fa-facebook-square"></i>
-                </button>
-                <button
-                  class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                  type="button"
-                >
-                  <i class="fab fa-dribbble"></i>
-                </button>
-                <button
-                  class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                  type="button"
-                >
-                  <i class="fab fa-github"></i>
-                </button>
-              </div>
-            </div>
-            <div class="w-full lg:w-6/12 px-4">
-              <div class="flex flex-wrap items-top mb-6">
-                <div class="w-full lg:w-4/12 px-4 ml-auto">
-                  <span
-                    class="block uppercase text-white text-lg font-semibold mb-4"
-                    >Useful Links</span
-                  >
-                  <ul class="list-unstyled">
-                    <li>
-                      <a
-                        class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://www.creative-tim.com/presentation?ref=njs-profile"
-                        >About Us</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://blog.creative-tim.com?ref=njs-profile"
-                        >Blog</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://www.github.com/creativetimofficial?ref=njs-profile"
-                        >Github</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://www.creative-tim.com/bootstrap-themes/free?ref=njs-profile"
-                        >Free Products</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-                <div class="w-full lg:w-4/12 px-4">
-                  <span
-                    class="block uppercase text-white text-lg font-semibold mb-4"
-                    >Other Resources</span
-                  >
-                  <ul class="list-unstyled">
-                    <li>
-                      <a
-                        class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-profile"
-                        >MIT License</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://creative-tim.com/terms?ref=njs-profile"
-                        >Terms & Conditions</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://creative-tim.com/privacy?ref=njs-profile"
-                        >Privacy Policy</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://creative-tim.com/contact-us?ref=njs-profile"
-                        >Contact Us</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </div>
+            <button
+              class="mt-8 w-56 rounded-full border-8 border-orange-500 bg-orange-600 px-10 py-4 text-lg font-bold text-white transition hover:translate-y-1"
+            >
+              Order Now
+            </button>
+        </a>
+      </div>
+    </div>
+    <script src="https://unpkg.com/flowbite@1.5.2/dist/datepicker.js"></script>
+
+    <!--Footer-->
+    <footer class="relative bg-black pt-8 pb-6">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex flex-wrap text-left lg:text-left">
+          <div class="w-full lg:w-6/12 px-4">
+            <h4 class="text-3xl text-white font-semibold text-blueGray-700">
+              Let's stay connected!
+            </h4>
+            <h5 class="text-lg mt-0 mb-2 text-white">
+              Find us on any of these platforms. We usually respond within 1-2
+              business days.
+            </h5>
+            <div class="mt-6 lg:mb-0 mb-6">
+              <button
+                class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button"
+              >
+                <i class="fab fa-twitter"></i>
+              </button>
+              <button
+                class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button"
+              >
+                <i class="fab fa-facebook-square"></i>
+              </button>
+              <button
+                class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button"
+              >
+                <i class="fab fa-dribbble"></i>
+              </button>
+              <button
+                class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button"
+              >
+                <i class="fab fa-github"></i>
+              </button>
             </div>
           </div>
-          <hr class="my-6 border-blueGray-300" />
-          <div
-            class="flex flex-wrap items-center md:justify-between justify-center"
-          >
-            <div class="w-full md:w-4/12 px-4 mx-auto text-center">
-              <div class="text-sm text-white font-semibold py-1">
-                Copyright © <span id="get-current-year">2021</span>
-                <a
-                  href="https://www.creative-tim.com/product/notus-js"
-                  class="text-white hover:text-gray-800"
-                  target="_blank"
-                  >BlackTech</a
+          <div class="w-full lg:w-6/12 px-4">
+            <div class="flex flex-wrap items-top mb-6">
+              <div class="w-full lg:w-4/12 px-4 ml-auto">
+                <span
+                  class="block uppercase text-white text-lg font-semibold mb-4"
+                  >Useful Links</span
                 >
-                <a
-                  href="https://www.creative-tim.com?ref=njs-profile"
-                  class="text-white hover:text-blueGray-800"
-                  >Consultancy</a
-                >.
+                <ul class="list-unstyled">
+                  <li>
+                    <a
+                      class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href="https://www.creative-tim.com/presentation?ref=njs-profile"
+                      >About Us</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href="https://blog.creative-tim.com?ref=njs-profile"
+                      >Blog</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href="https://www.github.com/creativetimofficial?ref=njs-profile"
+                      >Github</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href="https://www.creative-tim.com/bootstrap-themes/free?ref=njs-profile"
+                      >Free Products</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="w-full lg:w-4/12 px-4">
+                <span
+                  class="block uppercase text-white text-lg font-semibold mb-4"
+                  >Other Resources</span
+                >
+                <ul class="list-unstyled">
+                  <li>
+                    <a
+                      class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-profile"
+                      >MIT License</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href="https://creative-tim.com/terms?ref=njs-profile"
+                      >Terms & Conditions</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href="https://creative-tim.com/privacy?ref=njs-profile"
+                      >Privacy Policy</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href="https://creative-tim.com/contact-us?ref=njs-profile"
+                      >Contact Us</a
+                    >
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
-      </footer>
-      <!--End Footer-->
+        <hr class="my-6 border-blueGray-300" />
+        <div
+          class="flex flex-wrap items-center md:justify-between justify-center"
+        >
+          <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+            <div class="text-sm text-white font-semibold py-1">
+              Copyright © <span id="get-current-year">2021</span>
+              <a
+                href="https://www.creative-tim.com/product/notus-js"
+                class="text-white hover:text-gray-800"
+                target="_blank"
+                >BlackTech</a
+              >
+              <a
+                href="https://www.creative-tim.com?ref=njs-profile"
+                class="text-white hover:text-blueGray-800"
+                >Consultancy</a
+              >.
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--End Footer-->
+
+    <script src="js/index.js"></script>
     </div>
   </body>
-  <script src="js/index.js"></script>
 </html>

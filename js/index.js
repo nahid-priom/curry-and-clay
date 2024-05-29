@@ -38,56 +38,56 @@
       }
     }
   });
-  document.addEventListener('DOMContentLoaded', function() {
-    const buttons = document.querySelectorAll('.selectable-button');
-    const makeAppointmentBtn = document.getElementById('makeAppointmentBtn');
+//   document.addEventListener('DOMContentLoaded', function() {
+//     const buttons = document.querySelectorAll('.selectable-button');
+//     const makeAppointmentBtn = document.getElementById('makeAppointmentBtn');
   
-    buttons.forEach(button => {
-      button.addEventListener('click', function() {
+//     buttons.forEach(button => {
+//       button.addEventListener('click', function() {
         
-        this.classList.toggle('selected');
-      });
-    });
+//         this.classList.toggle('selected');
+//       });
+//     });
   
-    makeAppointmentBtn.addEventListener('click', function() {
-      const selectedButtons = document.querySelectorAll('.selectable-button.selected');
-      if (selectedButtons.length > 0) {
+//     makeAppointmentBtn.addEventListener('click', function() {
+//       const selectedButtons = document.querySelectorAll('.selectable-button.selected');
+//       if (selectedButtons.length > 0) {
         
-        console.log('Appointment booked for:', selectedButtons);
-      } else {
-        alert('Please select at least one service.');
-      }
-    });
-  });
+//         console.log('Appointment booked for:', selectedButtons);
+//       } else {
+//         alert('Please select at least one service.');
+//       }
+//     });
+//   });
   
-const buttons = document.querySelectorAll('.grid button');
+// const buttons = document.querySelectorAll('.grid button');
 
 
-buttons.forEach(button => {
-  button.addEventListener('click', () => {
+// buttons.forEach(button => {
+//   button.addEventListener('click', () => {
     
-    buttons.forEach(btn => btn.classList.remove('active'));
+//     buttons.forEach(btn => btn.classList.remove('active'));
 
     
-    button.classList.add('active');
-  });
-});
-window.onload = function() {
+//     button.classList.add('active');
+//   });
+// });
+// window.onload = function() {
  
-  document.querySelector('.content').classList.remove('hidden');
-  document.querySelector('.preloader').classList.add('hidden');
-};
+//   document.querySelector('.content').classList.remove('hidden');
+//   document.querySelector('.preloader').classList.add('hidden');
+// };
 
-const phoneIcon = document.getElementById('phoneIcon');
-const phoneNumber = document.getElementById('phoneNumber');
+// const phoneIcon = document.getElementById('phoneIcon');
+// const phoneNumber = document.getElementById('phoneNumber');
 
-phoneIcon.addEventListener('mouseenter', () => {
-  phoneNumber.classList.remove('hidden');
-});
+// phoneIcon.addEventListener('mouseenter', () => {
+//   phoneNumber.classList.remove('hidden');
+// });
 
-phoneIcon.addEventListener('mouseleave', () => {
-  phoneNumber.classList.add('hidden');
-});
+// phoneIcon.addEventListener('mouseleave', () => {
+//   phoneNumber.classList.add('hidden');
+// });
 
 document.addEventListener("DOMContentLoaded", function () {
   var preloader = document.querySelector(".preloader");
@@ -98,22 +98,22 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 2000);
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const burger = document.querySelector(".navbar-burger");
-  const menu = document.querySelector(".navbar-menu");
-  const close = document.querySelector(".navbar-close");
-  const backdrop = document.querySelector(".navbar-backdrop");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const burger = document.querySelector(".navbar-burger");
+//   const menu = document.querySelector(".navbar-menu");
+//   const close = document.querySelector(".navbar-close");
+//   const backdrop = document.querySelector(".navbar-backdrop");
 
-  burger.addEventListener("click", () => {
-    menu.classList.add("open");
-  });
+//   burger.addEventListener("click", () => {
+//     menu.classList.add("open");
+//   });
 
-  close.addEventListener("click", () => {
-    menu.classList.remove("open");
-  });
+//   close.addEventListener("click", () => {
+//     menu.classList.remove("open");
+//   });
 
-  backdrop.addEventListener("click", () => {
-    menu.classList.remove("open");
-  });
-});
+//   backdrop.addEventListener("click", () => {
+//     menu.classList.remove("open");
+//   });
+// });
 

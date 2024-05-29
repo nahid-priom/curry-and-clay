@@ -14,32 +14,11 @@
     />
 
     <style>
-      .video-container {
-        position: relative;
-        width: 100%;
-        padding-bottom: 56.25%;
-      }
-      .video-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-      }
-      .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.608);
-        z-index: 2;
-      }
       .dropdown {
         display: inline-block;
         position: relative;
       }
+    
       .dropdown-content {
         display: none;
         position: absolute;
@@ -47,38 +26,49 @@
         min-width: 300px;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1000;
-      }
-      .dropdown:hover .dropdown-content {
-        margin-top: 5px;
-        display: flex;
-        flex-direction: column;
         border-radius: 10px;
+        flex-direction: column;
       }
+    
+      .dropdown:hover .dropdown-content {
+        display: flex;
+        margin-top: 5px;
+      }
+    
       .dropdown-content a {
         color: white;
         text-decoration: none;
         display: flex;
         align-items: center;
         padding: 12px 16px;
+        border-bottom: 1px solid #f37016;
       }
+    
+      .dropdown-content a:last-child {
+        border-bottom: none;
+      }
+    
       .dropdown-content img {
         width: 60px;
         margin-right: 10px;
         border-radius: 100%;
       }
+    
       .dropdown-content p {
         margin: 0;
       }
+    
       .dropdown-content a:hover {
         background-color: #f37016;
-        color: white;
       }
+    
       @media screen and (max-width: 767px) {
         .hero-section .video-container {
           position: relative;
           width: 100%;
           height: 100%;
         }
+    
         .hero-section .video-container iframe {
           position: absolute;
           top: 0;
@@ -364,7 +354,7 @@
                 <a
                   class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold text-white bg-[#F37016] hover:bg-[#F37016] hover:text-white rounded-xl"
                   href="#"
-                  >Online Orders</a
+                  >Order Now</a
                 >
               </div>
               <p class="my-4 text-xs text-center text-white">
@@ -376,15 +366,21 @@
       </section>
       <!--End Navbar-->
       <!--Single Food Section-->
-      <section class="py-10 -z-10 lg:py-24 bg-black relative">
+      <section class="py-10 lg:py-24 bg-black">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-            <div class="pro-detail w-full flex flex-col justify-center order-last lg:order-none max-lg:max-w-[608px] max-lg:mx-auto">
-              <h2 class="mb-2 font-manrope font-bold text-4xl leading-10 text-white">
+            <div
+              class="pro-detail w-full flex flex-col justify-center order-last lg:order-none max-lg:max-w-[608px] max-lg:mx-auto"
+            >
+              <h2
+                class="mb-2 font-manrope font-bold text-4xl leading-10 text-white"
+              >
                 Samosa Chaat
               </h2>
               <div class="flex flex-col sm:flex-row sm:items-center mb-6">
-                <h6 class="font-manrope font-semibold text-2xl leading-9 text-white pr-5 sm:border-r border-gray-200 mr-5">
+                <h6
+                  class="font-manrope font-semibold text-2xl leading-9 text-white pr-5 sm:border-r border-gray-200 mr-5"
+                >
                   $6.99
                 </h6>
                 <div class="flex items-center gap-2">
@@ -489,15 +485,18 @@
                 </div>
               </div>
               <p class="mb-4 text-lg font-normal text-white">
-                Samosa Chaat is a popular Indian street food that combines crispy samosas with chickpea curry (chole), various chutneys, yogurt, and a variety of toppings. This dish is known for its diverse flavors and textures, making it a favorite among food enthusiasts.
+                Samosa Chaat is a popular Indian street food that combines
+                crispy samosas with chickpea curry (chole), various chutneys,
+                yogurt, and a variety of toppings. This dish is known for its
+                diverse flavors and textures, making it a favorite among food
+                enthusiasts.
               </p>
               <div class="flex gap-3">
-                <button class="px-4 py-2 bg-orange-500 text-white text-base leading-6 rounded-md border border-orangbg-orange-500 hover:bg-orange-500-dark hover:border-orangbg-orange-500-dark font-semibold">
-                  Order Now
-                </button>
-                <button class="px-4 py-2 bg-white text-orangbg-orange-500 text-base leading-6 rounded-md border border-orangbg-orange-500 hover:bg-orange-500-light font-semibold">
-                  Add to Cart
-                </button>
+                <a
+                class="inline-block py-3 px-6 bg-[#F37016] hover:bg-[#F37016] text-sm text-white font-bold rounded-md transition duration-200"
+                href="order-now.html"
+                >Order Now</a
+              >
               </div>
             </div>
             <div class="relative h-full min-h-[384px] max-h-[420px]">
@@ -510,8 +509,6 @@
           </div>
         </div>
       </section>
-      
-     
 
       <!--Footer-->
       <footer class="relative bg-black pt-8 pb-6">
