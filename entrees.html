@@ -14,31 +14,38 @@
     />
     <style>
       .video-container {
-        position: relative;
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        padding-bottom: 56.25%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -10;
       }
+
       .video-container iframe {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
+        top: 50%;
+        left: 50%;
+        width: 150%;
+        height: 150%;
+        transform: translate(-50%, -50%); /* Center the iframe */
       }
-      .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.608);
-        z-index: 2;
-      }
-      .dropdown {
+
+      @media (max-width: 768px) {
+        .hero-section {
+          height: 490px;
+        }
+
+        .video-container iframe {
+          width: 200%;
+          height: 150%;
+        }
+        .dropdown {
         display: inline-block;
         position: relative;
       }
+    
       .dropdown-content {
         display: none;
         position: absolute;
@@ -46,12 +53,66 @@
         min-width: 300px;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1000;
-      }
-      .dropdown:hover .dropdown-content {
-        margin-top: 5px;
-        display: flex;
-        flex-direction: column;
         border-radius: 10px;
+        flex-direction: column;
+      }
+    
+      .dropdown:hover .dropdown-content {
+        display: flex;
+        margin-top: 5px;
+      }
+    
+      .dropdown-content a {
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        padding: 12px 16px;
+        border-bottom: 1px solid #f37016;
+      }
+    
+      .dropdown-content a:last-child {
+        border-bottom: none;
+      }
+    
+      .dropdown-content img {
+        width: 60px;
+        margin-right: 10px;
+        border-radius: 100%;
+      }
+    
+      .dropdown-content p {
+        margin: 0;
+      }
+    
+      .dropdown-content a:hover {
+        background-color: #f37016;
+      }
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: -5;
+      }
+
+      .hero-section .absolute {
+        z-index: 10;
+      }
+
+      .hidden {
+        display: none;
+      }
+      .dropdown-content {
+        position: absolute;
+        background-color: #000;
+        min-width: 300px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
       }
       .dropdown-content a {
         color: white;
@@ -62,6 +123,7 @@
       }
       .dropdown-content img {
         width: 60px;
+        height: 60px;
         margin-right: 10px;
         border-radius: 100%;
       }
@@ -71,21 +133,6 @@
       .dropdown-content a:hover {
         background-color: #f37016;
         color: white;
-      }
-      @media screen and (max-width: 767px) {
-        .hero-section .video-container {
-          position: relative;
-          width: 100%;
-          height: 100%;
-        }
-        .hero-section .video-container iframe {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
       }
     </style>
     <!-- Swiper CSS -->
@@ -114,266 +161,293 @@
     </div>
 
     <div class="content hidden">
-            <!--Navbar-->
-            <section>
-              <div class="shadow-md bg-black">
-                <nav
-                  class="relative max-w-7xl mx-auto px-4 py-2 flex justify-between items-center"
+      <section>
+        <div class="shadow-md bg-black">
+          <nav
+            class="relative max-w-7xl mx-auto px-4 py-2 flex justify-between items-center"
+          >
+            <a class="text-3xl font-bold leading-none" href="index.html">
+              <img src="images/logo.png" alt="logo" class="w-20 lg:w-32" />
+            </a>
+            <div class="lg:hidden">
+              <button
+                id="navbar-burger"
+                class="navbar-burger flex items-center text-white rounded-md bg-[#F37016] p-3"
+              >
+                <svg
+                  class="block h-4 w-4 fill-current"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <a class="text-3xl font-bold leading-none" href="index.html">
-                    <img src="images/logo.png" alt="logo" class="w-20 lg:w-32" />
-                  </a>
-                  <div class="lg:hidden">
-                    <button
-                      class="navbar-burger flex items-center text-white text-white rounded-md bg-[#F37016] p-3"
-                    >
-                      <svg
-                        class="block h-4 w-4 fill-current"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <title>Restaurant menu</title>
-                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-                      </svg>
-                    </button>
-                  </div>
-                  <ul
-                    class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6"
-                  >
-                    <div class="dropdown">
-                      <a
-                        class="text-lg px-4 py-3 hover:text-white text-white hover:bg-[#F37016] font-bold hover:text-gray-500 dropbtn"
-                        href="#"
-                      >
-                        Menu <i class="fas fa-chevron-down ml-2"></i>
-                      </a>
-                      <div class="dropdown-content border-b-2">
-                        <a
-                          href="appetizer.html"
-                          class="border-b rounded-md border-orange-300"
-                        >
-                          <img
-                            src="https://www.restaurantware.com/cdn/shop/files/RWC0011-2-LR.jpg?v=1709408385&width=750"
-                            alt="Appetizers"
-                          />
-                          <p class="font-bold ml-4">Appetizers</p>
-                        </a>
-                        <a
-                          href="noodles.html"
-                          class="border-b rounded-md border-orange-300"
-                        >
-                          <img
-                            src="https://blakehillpreserves.com/cdn/shop/articles/HERO_SQUARE_IMAGE_FRESNO_THAI_CHILI_PEANUT_NOODLES_1400x.jpg?v=1600825937"
-                            alt="Noodles"
-                          />
-                          <p class="font-bold ml-4">Noodles</p>
-                        </a>
-                        <a href="#" class="border-b rounded-md border-orange-300">
-                          <img
-                            src="https://static01.nyt.com/images/2020/03/04/dining/tr-meen-gassi/tr-meen-gassi-square640.jpg"
-                            alt="Curries (Sea-Food)"
-                          />
-                          <p class="font-bold ml-4">Curries (Sea-Food)</p>
-                        </a>
-                        <a href="#" class="border-b rounded-md border-orange-300">
-                          <img
-                            src="https://pinchofyum.com/wp-content/uploads/Thai-Yellow-Chicken-Curry-Square.jpg"
-                            alt="Curries (Vegetarian)"
-                          />
-                          <p class="font-bold ml-4">Curries (Vegetarian)</p>
-                        </a>
-                      </div>
-                    </div>
-                    <li class="text-gray-300">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        stroke="currentColor"
-                        class="w-4 h-4 current-fill"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-                        />
-                      </svg>
-                    </li>
-                    <li>
-                      <a
-                        class="text-lg px-4 py-3 hover:text-white text-white hover:bg-[#F37016] font-bold"
-                        href="#"
-                        >About</a
-                      >
-                    </li>
-                    <li class="text-gray-300">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        stroke="currentColor"
-                        class="w-4 h-4 current-fill"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-                        />
-                      </svg>
-                    </li>
-                    <li>
-                      <a
-                        class="text-lg px-4 py-3 hover:text-white text-white hover:bg-[#F37016] font-bold"
-                        href="#"
-                        >Contact</a
-                      >
-                    </li>
-                    <li class="text-gray-300">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        stroke="currentColor"
-                        class="w-4 h-4 current-fill"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-                        />
-                      </svg>
-                    </li>
-                    <li>
-                      <a
-                        class="text-lg px-4 py-3 hover:text-white text-white hover:bg-[#F37016] font-bold"
-                        href="gallery.html"
-                        >Blog</a
-                      >
-                    </li>
-                  </ul>
-                  <a
-                    class="hidden lg:inline-block py-2 px-6 bg-[#F37016] hover:bg-[#F37016] text-sm text-white font-bold rounded-md transition duration-200"
-                    href="#"
-                    >Online Orders</a
-                  >
-                </nav>
-              </div>
-              <div class="navbar-menu relative z-50 hidden">
+                  <title>Restaurant menu</title>
+                  <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                </svg>
+              </button>
+            </div>
+            <ul
+              class="hidden lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6 relative"
+            >
+              <div class="dropdown inline-block">
+                <a
+                  id="menu-button"
+                  class="text-lg px-4 py-3 hover:text-white text-white hover:bg-[#F37016] font-bold bg-black dropbtn"
+                  href="#"
+                >
+                  Menu <i class="fas fa-chevron-down ml-2"></i>
+                </a>
                 <div
-                  class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"
-                ></div>
-                <nav
-                  class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-black border-r overflow-y-auto"
+                  id="dropdown-content"
+                  class="dropdown-content hidden mt-1 border-b-2 rounded-md shadow-lg"
                 >
-                  <div class="flex items-center mb-8">
-                    <a class="mr-auto text-3xl font-bold leading-none" href="#">
-                      <img src="images/logo.png" class="w-32" />
-                    </a>
-                    <button class="navbar-close">
-                      <svg
-                        class="h-6 w-6 text-white cursor-pointer hover:text-[#F37016]"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                  <div>
-                    <ul>
-                      <div class="dropdown">
-                        <a
-                          class="text-lg px-4 py-3 hover:text-white text-white hover:bg-[#F37016] font-bold hover:text-gray-500 dropbtn"
-                          href="#"
-                        >
-                          Menu <i class="fas fa-chevron-down ml-2"></i>
-                        </a>
-                        <div class="dropdown-content border-b-2">
-                          <a
-                            href="appetizer.html"
-                            class="border-b rounded-md border-orange-300"
-                          >
-                            <img
-                              src="https://www.restaurantware.com/cdn/shop/files/RWC0011-2-LR.jpg?v=1709408385&width=750"
-                              alt="Appetizers"
-                            />
-                            <p class="font-bold ml-4">Appetizers</p>
-                          </a>
-                          <a
-                            href="noodles.html"
-                            class="border-b rounded-md border-orange-300"
-                          >
-                            <img
-                              src="https://blakehillpreserves.com/cdn/shop/articles/HERO_SQUARE_IMAGE_FRESNO_THAI_CHILI_PEANUT_NOODLES_1400x.jpg?v=1600825937"
-                              alt="Noodles"
-                            />
-                            <p class="font-bold ml-4">Noodles</p>
-                          </a>
-                          <a href="#" class="border-b rounded-md border-orange-300">
-                            <img
-                              src="https://static01.nyt.com/images/2020/03/04/dining/tr-meen-gassi/tr-meen-gassi-square640.jpg"
-                              alt="Curries (Sea-Food)"
-                            />
-                            <p class="font-bold ml-4">Curries (Sea-Food)</p>
-                          </a>
-                          <a href="#" class="border-b rounded-md border-orange-300">
-                            <img
-                              src="https://pinchofyum.com/wp-content/uploads/Thai-Yellow-Chicken-Curry-Square.jpg"
-                              alt="Curries (Vegetarian)"
-                            />
-                            <p class="font-bold ml-4">Curries (Vegetarian)</p>
-                          </a>
-                        </div>
-                      </div>
-                      <li class="mb-1">
-                        <a
-                          class="block p-4 text-lg font-bold text-white hover:bg-[#F37016] hover:text-white rounded"
-                          href="#"
-                          >About</a
-                        >
-                      </li>
-                      <li class="mb-1">
-                        <a
-                          class="block p-4 text-lg font-bold text-white hover:bg-[#F37016] hover:text-white rounded"
-                          href="#"
-                          >Contact</a
-                        >
-                      </li>
-                      <li class="mb-1">
-                        <a
-                          class="block p-4 text-lg font-bold text-white hover:bg-[#F37016] hover:text-white rounded"
-                          href=""
-                          >Blog</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="mt-auto">
-                    <div class="pt-6">
-                      <a
-                        class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold text-white bg-[#F37016] hover:bg-[#F37016] hover:text-white rounded-xl"
-                        href="#"
-                        >Online Orders</a
-                      >
-                    </div>
-                    <p class="my-4 text-xs text-center text-white">
-                      <span>Copyright © Blacktech Consultancy</span>
-                    </p>
-                  </div>
-                </nav>
+                  <a
+                    href="appetizer.html"
+                    class="border-b border-orange-300 flex items-center px-4 py-2 hover:bg-[#F37016]"
+                  >
+                    <img
+                      src="https://www.restaurantware.com/cdn/shop/files/RWC0011-2-LR.jpg?v=1709408385&width=750"
+                      alt="Appetizers"
+                      class="w-10 h-10 rounded-full"
+                    />
+                    <p class="font-bold ml-4">Appetizers</p>
+                  </a>
+                  <a
+                    href="entrees.html"
+                    class="border-b border-orange-300 flex items-center px-4 py-2 hover:bg-[#F37016]"
+                  >
+                    <img
+                      src="https://t3.ftcdn.net/jpg/04/68/93/94/360_F_468939407_9Q02XfVQJsKW0ZUEU4axdITcRgu7OPLd.jpg"
+                      alt="Entrees"
+                      class="w-10 h-10 rounded-full"
+                    />
+                    <p class="font-bold ml-4">Entrees</p>
+                  </a>
+                  <a
+                    href="#"
+                    class="border-b border-orange-300 flex items-center px-4 py-2 hover:bg-[#F37016]"
+                  >
+                    <img
+                      src="https://static01.nyt.com/images/2020/03/04/dining/tr-meen-gassi/tr-meen-gassi-square640.jpg"
+                      alt="Curries (Sea-Food)"
+                      class="w-10 h-10 rounded-full"
+                    />
+                    <p class="font-bold ml-4">Curries (Sea-Food)</p>
+                  </a>
+                  <a
+                    href="#"
+                    class="border-b border-orange-300 flex items-center px-4 py-2 hover:bg-[#F37016]"
+                  >
+                    <img
+                      src="https://pinchofyum.com/wp-content/uploads/Thai-Yellow-Chicken-Curry-Square.jpg"
+                      alt="Curries (Vegetarian)"
+                      class="w-10 h-10 rounded-full"
+                    />
+                    <p class="font-bold ml-4">Curries (Vegetarian)</p>
+                  </a>
+                </div>
               </div>
-            </section>
-            <!--End Navbar-->
+              <li class="text-gray-300">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  stroke="currentColor"
+                  class="w-4 h-4 current-fill"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                  />
+                </svg>
+              </li>
+              <li>
+                <a
+                  class="text-lg px-4 py-3 hover:text-white text-white hover:bg-[#F37016] font-bold"
+                  href="about.html"
+                  >About</a
+                >
+              </li>
+              <li class="text-gray-300">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  stroke="currentColor"
+                  class="w-4 h-4 current-fill"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                  />
+                </svg>
+              </li>
+              <li>
+                <a
+                  class="text-lg px-4 py-3 hover:text-white text-white hover:bg-[#F37016] font-bold"
+                  href="contact.html"
+                  >Contact</a
+                >
+              </li>
+              <li class="text-gray-300">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  stroke="currentColor"
+                  class="w-4 h-4 current-fill"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                  />
+                </svg>
+              </li>
+              <li>
+                <a
+                  class="text-lg px-4 py-3 hover:text-white text-white hover:bg-[#F37016] font-bold"
+                  href="blog.html"
+                  >Blog</a
+                >
+              </li>
+            </ul>
+            <a
+              class="hidden lg:inline-block py-2 px-6 bg-[#F37016] hover:bg-[#F37016] text-sm text-white font-bold rounded-md transition duration-200"
+              href="#"
+              >Online Orders</a
+            >
+          </nav>
+        </div>
+        <div class="navbar-menu relative z-50 hidden">
+          <div
+            class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"
+          ></div>
+          <nav
+            class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-black border-r overflow-y-auto"
+          >
+            <div class="flex items-center mb-8">
+              <a class="mr-auto text-3xl font-bold leading-none" href="#">
+                <img src="images/logo.png" class="w-32" />
+              </a>
+              <button class="navbar-close">
+                <svg
+                  class="h-6 w-6 text-white cursor-pointer hover:text-[#F37016]"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div>
+              <ul>
+                <div class="dropdown">
+                  <a
+                    id="menu-button"
+                    class="block p-4 text-lg font-bold text-white hover:bg-[#F37016] hover:text-white rounded"
+                    href="#"
+                  >
+                    Menu <i class="fas fa-chevron-down ml-2"></i>
+                  </a>
+                  <div id="dropdown-content" class="dropdown-content hidden">
+                    <a
+                      href="appetizer.html"
+                      class="border-b rounded-md border-orange-300 flex items-center px-4 py-2 hover:bg-[#F37016]"
+                    >
+                      <img
+                        src="https://www.restaurantware.com/cdn/shop/files/RWC0011-2-LR.jpg?v=1709408385&width=750"
+                        alt="Appetizers"
+                        class="w-10 h-10 rounded-full"
+                      />
+                      <p class="font-bold ml-4">Appetizers</p>
+                    </a>
+                    <a
+                      href="entrees.html"
+                      class="border-b rounded-md border-orange-300 flex items-center px-4 py-2 hover:bg-[#F37016]"
+                    >
+                      <img
+                        src="https://t3.ftcdn.net/jpg/04/68/93/94/360_F_468939407_9Q02XfVQJsKW0ZUEU4axdITcRgu7OPLd.jpg"
+                        alt="Entrees"
+                        class="w-10 h-10 rounded-full"
+                      />
+                      <p class="font-bold ml-4">Entrees</p>
+                    </a>
+                    <a
+                      href="#"
+                      class="border-b rounded-md border-orange-300 flex items-center px-4 py-2 hover:bg-[#F37016]"
+                    >
+                      <img
+                        src="https://static01.nyt.com/images/2020/03/04/dining/tr-meen-gassi/tr-meen-gassi-square640.jpg"
+                        alt="Curries (Sea-Food)"
+                        class="w-10 h-10 rounded-full"
+                      />
+                      <p class="font-bold ml-4">Curries (Sea-Food)</p>
+                    </a>
+                    <a
+                      href="#"
+                      class="border-b rounded-md border-orange-300 flex items-center px-4 py-2 hover:bg-[#F37016]"
+                    >
+                      <img
+                        src="https://pinchofyum.com/wp-content/uploads/Thai-Yellow-Chicken-Curry-Square.jpg"
+                        alt="Curries (Vegetarian)"
+                        class="w-10 h-10 rounded-full"
+                      />
+                      <p class="font-bold ml-4">Curries (Vegetarian)</p>
+                    </a>
+                  </div>
+                </div>
+                <li class="mb-1">
+                  <a
+                    class="block p-4 text-lg font-bold text-white hover:bg-[#F37016] hover:text-white rounded"
+                    href="about.html"
+                    >About</a
+                  >
+                </li>
+                <li class="mb-1">
+                  <a
+                    class="block p-4 text-lg font-bold text-white hover:bg-[#F37016] hover:text-white rounded"
+                    href="contact.html"
+                    >Contact</a
+                  >
+                </li>
+                <li class="mb-1">
+                  <a
+                    class="block p-4 text-lg font-bold text-white hover:bg-[#F37016] hover:text-white rounded"
+                    href="blog.html"
+                    >Blog</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="mt-auto">
+              <div class="pt-6">
+                <a
+                  class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold text-white bg-[#F37016] hover:bg-[#F37016] hover:text-white rounded-xl"
+                  href="#"
+                  >Online Orders</a
+                >
+              </div>
+              <p class="my-4 text-xs text-center text-white">
+                <span>Copyright © Blacktech Consultancy</span>
+              </p>
+            </div>
+          </nav>
+        </div>
+      </section>
+      <!-- End Navbar -->
+
+
 
        <!-- Popular Foods Section -->
        <section class="popular-foods py-4 bg-black">
@@ -381,7 +455,7 @@
           <h2
             class="text-3xl lg:text-4xl font-bold text-center text-white bg-orange-500 py-3 mb-8 rounded-md"
           >
-           Noodles
+           Entrees
           </h2>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <a
@@ -390,12 +464,12 @@
             >
               <div class="bg-white shadow-lg h-88 rounded-lg p-6">
                 <img
-                  src="https://www.savingdessert.com/wp-content/uploads/2020/09/Spicy-Peanut-Noodles-6-500x375.jpg"
+                  src="https://t3.ftcdn.net/jpg/04/68/93/94/360_F_468939407_9Q02XfVQJsKW0ZUEU4axdITcRgu7OPLd.jpg"
                   alt="Appetizers"
                   class="w-full h-48 object-cover mb-4 rounded-lg"
                 />
                 <h3 class="text-xl font-bold text-black mb-2">
-                    Caldo de Gallina 
+                    Tandoori Chicken
                 </h3>
                 <p class="text-gray-600">
                   The blend of spices and coconut brings out the mild sweetness
@@ -642,4 +716,5 @@
     </div>
   </body>
   <script src="js/index.js"></script>
+  
 </html>
